@@ -28,7 +28,7 @@ The project is developed with a **specification-first, test-driven workflow**: r
 ## 🖥️ Dashboard Preview
 
 <div align="center">
-  <img src="docs/images/ticket-dashboard.png" alt="Support Ticket Management System dashboard showing ticket metrics, search and filters, and the create-ticket form" width="100%" />
+  <img src="https://github.com/Ankur245304/ticket-system/blob/main/img.png" alt="Support Ticket Management System dashboard showing ticket metrics, search and filters, and the create-ticket form" width="100%" />
   <br/>
   <sub>Dashboard preview — create tickets, search and filter the list, and view ticket status at a glance.</sub>
 </div>
