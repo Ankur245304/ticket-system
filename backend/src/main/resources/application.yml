@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/support_ticket}
+    username: ${DB_USERNAME:support}
+    password: ${DB_PASSWORD:support_dev_password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+server:
+  error:
+    include-message: never
+    include-binding-errors: never
