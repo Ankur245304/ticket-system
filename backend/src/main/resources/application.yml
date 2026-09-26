@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/support_ticket}
-    username: ${DB_USERNAME:support}
-    password: ${DB_PASSWORD:support_dev_password}
+    url: jdbc:mysql://${MYSQL_HOST:localhost:3306}/${MYSQL_DB:ticket_poc}?useUnicode=yes&characterEncoding=UTF-8
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:igdefault}
   jpa:
     hibernate:
       ddl-auto: update

@@ -6,7 +6,7 @@
 3. View ticket details.
 4. Update title, description, priority and assignee.
 5. Add comments.
-6. Search tickets by keyword.
+6. Search tickets by keyword across title, description, and assignee.
 7. Filter by status.
 8. Persist data in a database.
 9. Validate input at backend.

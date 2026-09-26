@@ -20,7 +20,7 @@ Or use Maven 3.9+:
 mvn spring-boot:run
 ```
 
-Default API: `http://localhost:8080/api`
+Default API: `http://localhost:8080/api/v1/support-tickets` (with `/api/tickets` backward-compatibility mapping)
 
 ## Run frontend
 ```bash
