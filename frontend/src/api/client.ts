@@ -1,0 +1,7 @@
+export type Status='OPEN'|'IN_PROGRESS'|'RESOLVED'|'CLOSED'|'CANCELLED';
+export type Priority='LOW'|'MEDIUM'|'HIGH'|'URGENT';
+export interface Comment{id:number;author:string;body:string;createdAt:string}
+export interface Ticket{id:number;title:string;description:string;priority:Priority;status:Status;assignee:string|null;createdAt:string;updatedAt:string;comments:Comment[]}
+const base=import.meta.env.VITE_API_URL ?? 'http://localhost:8080/api';
+async function request<T>(path:string,init?:RequestInit):Promise<T>{const r=await fetch(base+path,{headers:{'Content-Type':'application/json',...(init?.headers??{})},...init});let data:any=null;try{data=await r.json()}catch{}if(!r.ok){const e=new Error(data?.message??'Request failed') as Error&{fields?:Record<string,string>;code?:string};e.fields=data?.fields;e.code=data?.code;throw e}return data}
+export const api={list:(keyword:string,status:string)=>request<Ticket[]>(`/tickets?keyword=${encodeURIComponent(keyword)}${status?`&status=${status}`:''}`),get:(id:number)=>request<Ticket>(`/tickets/${id}`),create:(x:any)=>request<Ticket>('/tickets',{method:'POST',body:JSON.stringify(x)}),update:(id:number,x:any)=>request<Ticket>(`/tickets/${id}`,{method:'PUT',body:JSON.stringify(x)}),status:(id:number,status:Status)=>request<Ticket>(`/tickets/${id}/status`,{method:'PATCH',body:JSON.stringify({status})}),comment:(id:number,x:any)=>request<Comment>(`/tickets/${id}/comments`,{method:'POST',body:JSON.stringify(x)})};
